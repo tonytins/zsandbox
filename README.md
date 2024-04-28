@@ -2,9 +2,9 @@
 
 Zig Sandbox, or zsandbox, is a personal testing ground for exploring the capabilities and syntax of the Zig programming language. This repository contains code examples adapted from [Rosetta Code](https://rosettacode.org/), serving as practical exercises to familiarize oneself with Zig's features and conventions.
 
-## Minimum Zig Version
+## Requirements
 
-To ensure compatibility with the provided code examples, it is recommended to use Zig version 0.11 or newer.
+- [Zig](https://ziglang.org/) 0.11 or newer
 
 ## Getting Started
 
@@ -32,6 +32,4 @@ To start experimenting with Zig in this sandbox, follow these steps:
 
 ## License
 
-All code in this repository is provided under the Unlicense with a fallback license of the BSD 3-Clause License. This means that I waive all copyright to the extent possible under law.
-
-For more details, please refer to the [UNLICENSE](UNLICENSE) and [LICENSE](LICENSE) files.
+In jurisdictions that recognize copyright waivers, I've [waived all copyright](UNLICENSE) and related or neighboring rights for to this project. In areas where these waivers are not recognized, [BSD-3-Clause](LICENSE) is enforced.

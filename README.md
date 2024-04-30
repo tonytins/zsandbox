@@ -1,6 +1,6 @@
 # Zig Sandbox (zsandbox)
 
-Zig Sandbox, or zsandbox, is a personal testing ground for exploring the capabilities and syntax of the Zig programming language. This repository contains code examples adapted from [Rosetta Code](https://rosettacode.org/), serving as practical exercises to familiarize oneself with Zig's features and conventions.
+Zig Sandbox, or zsandbox, is a personal testing ground for exploring the capabilities and syntax of the Zig programming language.
 
 ## Requirements
 

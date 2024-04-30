@@ -4,24 +4,14 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "zig build",
+            "label": "zig run FPS",
             "type": "shell",
-            "command": "zig build"
+            "command": "cd fps && zig build run"
         },
         {
-            "label": "zig run",
+            "label": "zig run screen manger",
             "type": "shell",
-            "command": "zig build run"
-        },
-        {
-            "label": "zig test",
-            "type": "shell",
-            "command": "zig build test"
-        },
-        {
-            "label": "zig WASM build",
-            "type": "shell",
-            "command": "zig build-exe src/main.zig -target wasm32-wasi"
+            "command": "cd scrnmanger && zig build run"
         }
     ]
 }

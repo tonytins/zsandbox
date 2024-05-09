@@ -1,4 +1,5 @@
 const std = @import("std");
+const builtin = @import("builtin");
 
 // Although this function looks imperative, note that its job is to
 // declaratively construct a build graph that will be executed by an external
@@ -16,7 +17,7 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     const lib = b.addStaticLibrary(.{
-        .name = "fps",
+        .name = "zsandbox",
         // In this case the main source file is merely a path, however, in more
         // complicated build scripts, this could be a generated file.
         .root_source_file = b.path("src/root.zig"),
@@ -30,13 +31,26 @@ pub fn build(b: *std.Build) void {
     b.installArtifact(lib);
 
     const exe = b.addExecutable(.{
-        .name = "fps",
+        .name = "zsandbox",
         .root_source_file = b.path("src/main.zig"),
         .target = target,
         .optimize = optimize,
     });
 
+    // C headers
+    exe.linkLibC();
+    exe.linkLibCpp();
+
     // Modules
+    const clap_dep = b.dependency("clap", .{
+        .target = target,
+        .optimize = optimize,
+    });
+
+    const clap = clap_dep.module("clap"); // main clap module
+
+    exe.root_module.addImport("clap", clap);
+
     const raylib_dep = b.dependency("raylib-zig", .{
         .target = target,
         .optimize = optimize,
@@ -44,12 +58,14 @@ pub fn build(b: *std.Build) void {
 
     const raylib = raylib_dep.module("raylib"); // main raylib module
     const raylib_math = raylib_dep.module("raylib-math"); // raymath module
+    // const raylib_gui = raylib_dep.module("raylib-gui"); // raylib gui
     const rlgl = raylib_dep.module("rlgl"); // rlgl module
     const raylib_artifact = raylib_dep.artifact("raylib"); // raylib C library
 
     exe.linkLibrary(raylib_artifact);
     exe.root_module.addImport("raylib", raylib);
     exe.root_module.addImport("raylib-math", raylib_math);
+    // exe.root_module.addImport("raylib-gui", raylib_gui);
     exe.root_module.addImport("rlgl", rlgl);
 
     // This declares intent for the executable to be installed into the

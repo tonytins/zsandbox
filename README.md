@@ -1,6 +1,6 @@
 # Zig Sandbox (zsandbox)
 
-Zig Sandbox, or zsandbox, is a personal testing ground for exploring the capabilities and syntax of the Zig programming language.
+Zig Sandbox is a personal testing ground for exploring the capabilities and syntax of the Zig programming language.
 
 ## Requirements
 
@@ -25,7 +25,7 @@ To start experimenting with Zig in this sandbox, follow these steps:
 3. **Run the Examples**: Execute the code examples using the Zig compiler. For instance:
 
    ```bash
-   zig build run
+   zig build run -- --[tokens|cuboid|chiper]
    ```
 
 4. **Experiment and Learn**: Modify the code, try out different constructs, and see how Zig behaves.

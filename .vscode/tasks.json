@@ -4,14 +4,20 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "zig run FPS",
+            "label": "zig run tokenize",
             "type": "shell",
-            "command": "cd fps && zig build run"
+            "command": "zig build run -- --tokens"
         },
         {
-            "label": "zig run screen manger",
+            "label": "zig run cuboid",
             "type": "shell",
-            "command": "cd scrnmanger && zig build run"
+            "command": "zig build run -- --cuboid"
+        },
+        
+        {
+            "label": "zig run chiper",
+            "type": "shell",
+            "command": "zig build run -- --chiper"
         }
     ]
 }
